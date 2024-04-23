@@ -1,4 +1,6 @@
-from flask import render_template, url_for
+from flask import request, render_template, redirect, url_for
+from werkzeug.utils import secure_filename
+import os
 from project import app
 
 @app.route('/')
@@ -16,3 +18,12 @@ def noticia2():
 @app.route('/noticia3')
 def noticia3():
     return render_template("noticia3.html")
+
+@app.route('/cadastro', methods=['GET', 'POST'])
+def cadastro_noticia():
+    if request.method == 'POST':
+        titulo = request.form['titulo']
+        conteudo = request.form['conteudo']
+        imagem = request.files['imagem']
+        return redirect(url_for('index'))
+    return render_template('cadastro.html')
