@@ -1,6 +1,6 @@
 FROM python:latest
 
-WORKDIR /home/pn
+WORKDIR /home
 
 COPY . .
 
@@ -8,6 +8,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
-USER pn
-
-CMD python3 main.py
+CMD flask --app ./main.py run --debug -p 5000 --host 0.0.0.0

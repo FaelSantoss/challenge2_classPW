@@ -30,14 +30,14 @@ services:
       watch:
         - action: sync
           path: .
-          target: /home/pn/app
+          target: /home/app
     depends_on:
       database:
         condition: service_healthy
     networks:
       - app-network
     volumes:
-      - .:/home/pn/app
+      - .:/home/app
     environment:
        - FLASK_ENV=development
 
