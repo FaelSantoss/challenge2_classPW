@@ -1,7 +1,5 @@
 from flask import request, render_template, redirect, url_for
-from werkzeug.utils import secure_filename
-import os
-from project import app
+from infra import app
 
 @app.route('/')
 def index():
