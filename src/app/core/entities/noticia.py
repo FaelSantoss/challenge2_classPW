@@ -6,5 +6,5 @@ from core.entities.entity import Entity
 @dataclass
 class Noticia(Entity):
     title: str = None
-    cotent: str = None
+    content: str = None
     img: str = None

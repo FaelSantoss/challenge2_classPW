@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 
-from wtforms import StringField, ColorField
+from wtforms import StringField
 from wtforms.validators import DataRequired
 
 from core.entities import Noticia
@@ -12,8 +12,8 @@ class NoticiaForm(FlaskForm):
 
         if isinstance(noticia, Noticia):
             self.title.data = noticia.title
-            self.content.data = noticia.cotent
-            self.img.default = noticia.img
+            self.content.data = noticia.content
+            self.img.data = noticia.img
 
     title = StringField(
         "Titulo",

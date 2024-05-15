@@ -1,5 +1,6 @@
 from flask import request, render_template, redirect, url_for
 from infra import app
+from infra.views import create_noticia_view
 
 @app.route('/')
 def index():
@@ -17,11 +18,6 @@ def noticia2():
 def noticia3():
     return render_template("noticia3.html")
 
-@app.route('/cadastro', methods=['GET', 'POST'])
-def cadastro_noticia():
-    if request.method == 'POST':
-        titulo = request.form['titulo']
-        conteudo = request.form['conteudo']
-        imagem = request.files['imagem']
-        return redirect(url_for('index'))
-    return render_template('cadastro.html')
+@app.route('/create-noticia', methods=['GET', 'POST'])
+def create_noticia():
+    return create_noticia_view()

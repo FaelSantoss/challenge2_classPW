@@ -22,15 +22,10 @@ services:
       retries: 5
 
  app:
-    build: .
+    image: faelsantoss/pw:1.1
     container_name: 'app'
     ports:
       - 5000:5000
-    develop:
-      watch:
-        - action: sync
-          path: .
-          target: /home/app
     depends_on:
       database:
         condition: service_healthy

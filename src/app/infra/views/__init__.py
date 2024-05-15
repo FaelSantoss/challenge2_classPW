@@ -1,0 +1,3 @@
+from .create_noticia_view import create_noticia_view
+
+create_noticia_view = create_noticia_view

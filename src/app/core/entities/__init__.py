@@ -1,1 +1,1 @@
-from noticia import *
+from .noticia import *

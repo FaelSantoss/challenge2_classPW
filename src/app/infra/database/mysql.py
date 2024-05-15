@@ -21,9 +21,7 @@ class MySQL:
             self.__database = self.__connection.cursor(dictionary=True)
 
         except mysql.connector.Error as error:
-            raise Error(
-                internal_message=f"Failed to create a database connection. Error: {error}",
-            ) from error
+            pass
 
     def query(self, sql: str, params: List = None, is_single=True) -> Union[Dict, None]:
         try:

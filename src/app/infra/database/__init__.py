@@ -1,4 +1,4 @@
-from infra.constants import MYSQL
+
 from .mysql import MySQL
 
 mysql = MySQL()
