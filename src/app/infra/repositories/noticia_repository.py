@@ -4,6 +4,8 @@ from infra.database import mysql
 
 class NoticiaRepository:
     def create_noticia_record(self, noticia_record: Noticia):
+        print(mysql, flush=True)
+
         sql = """
         INSERT INTO noticia
         (title, content, img)
@@ -15,4 +17,4 @@ class NoticiaRepository:
             noticia_record.img,
         ]
 
-        mysql.mutate(sql, params)
+        mysql.mutate(sql=sql, params=params)

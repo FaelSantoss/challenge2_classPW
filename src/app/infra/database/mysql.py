@@ -7,6 +7,9 @@ from core.commons import Error
 
 
 class MySQL:
+    __connection = None
+    __database = None
+
     def __init__(self) -> None:
         config = {
             "user": getenv("MYSQL_DATABASE_USER"),
@@ -19,8 +22,10 @@ class MySQL:
         try:
             self.__connection = mysql.connector.connect(**config)
             self.__database = self.__connection.cursor(dictionary=True)
+            print(self.__database)
 
         except mysql.connector.Error as error:
+            print("error", error)
             pass
 
     def query(self, sql: str, params: List = None, is_single=True) -> Union[Dict, None]:
@@ -35,22 +40,15 @@ class MySQL:
         except mysql.connector.Error as error:
             self.__close_connection()
 
-            raise Error(
-                internal_message=f"Failed to execute a query on the database. Error: {error}",
-            ) from error
-
     def mutate(self, sql: str, params) -> Dict:
         try:
             self.__database.execute(sql, params)
             self.__connection.commit()
 
         except mysql.connector.Error as error:
+            print("error", error)
             self.__connection.rollback()
             self.__close_connection()
-
-            raise Error(
-                internal_message=f"Failed to execute a mutation on the database. Error: {error}",
-            ) from error
 
     def __close_connection(self):
         self.__connection.close()

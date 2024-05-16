@@ -1,3 +1,6 @@
-from .create_noticia_view import create_noticia_view
+from flask import Flask
+from .noticia_views import noticia_views
 
-create_noticia_view = create_noticia_view
+
+def init_views(app: Flask):
+    app.register_blueprint(noticia_views)
