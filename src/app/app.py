@@ -9,6 +9,7 @@ def create_app():
         __name__, template_folder="../ui/templates", static_folder="../ui/static"
     )
 
+    app.config["UPLOAD_FOLDER"] = "static/"
     app.config["SECRET_KEY"] = "1234"
     init_views(app)
     init_database()
