@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 
 from wtforms import StringField, FileField
-from wtforms.validators import DataRequired, FileRequired
+from wtforms.validators import DataRequired
 
 
 class NoticiaForm(FlaskForm):
@@ -17,5 +17,5 @@ class NoticiaForm(FlaskForm):
 
     img = FileField(
         "Imagem",
-        validators=[FileRequired()],
+        validators=[DataRequired()],
     )

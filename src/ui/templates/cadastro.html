@@ -1,8 +1,8 @@
 {% extends "homepage.html" %}
 {% block body %}
 <body>
-    <form method="POST" action="{{ url_for('noticia_views.create_noticia') }}">
-        {{ form.hidden_tag() }}
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('noticia_views.create_noticia') }}">
+        {{ form.csrf_token }}
         {{ form.title.label }} {{ form.title(size=20) }}
         {{ form.content.label }} {{ form.content(size=50) }}
         {{ form.img.label }} {{ form.img(size=30) }}
