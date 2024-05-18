@@ -7,7 +7,7 @@ class NoticiaRepository:
         print(mysql, flush=True)
 
         sql = """
-        INSERT INTO noticia
+        INSERT INTO noticias
         (title, content, img)
         VALUES (%s, %s, %s)
         """
@@ -18,3 +18,17 @@ class NoticiaRepository:
         ]
 
         mysql.mutate(sql=sql, params=params)
+
+    def get_noticias(self) -> list[Noticia]:
+        select_query = "SELECT * FROM noticias"
+        rows = mysql.query(sql=select_query, is_single=False)
+
+        noticias = []
+
+        for row in rows:
+            noticias.append(self.__get_noticia_entity(row))
+
+        return noticias
+    
+    def __get_noticia_entity(self, row):
+        return Noticia(id=row["id"], title=row["title"], content=row["content"], img=row["img"])

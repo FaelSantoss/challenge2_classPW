@@ -97,47 +97,8 @@
       <div class="p-5 mx-5">
         <h2 class="display-4">Veja mais sobre</h2>
       </div>      
+      {% include "noticia_cards/index.html"%}
 
-      <div class="container mb-5">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="card mb-3">
-      <div class="card" style="width: 18rem;">
-        <img src="{{ url_for('static', filename='noticia1.jpg') }}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Corinthians x America MG</h5>
-          <p class="card-text">Corinthians não aproveita superioridade numérica e tropeça em casa na estreira do brasileirão.</p>
-          <a href="/noticia1" class="btn btn-primary">Saiba Mais</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card mb-3">
-      <div class="card" style="width: 18rem;">
-        <img src="{{ url_for('static', filename='noticia2.jpg') }}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Corinthians bate Recorde</h5>
-          <p class="card-text">Torcida do Corinthians bate outro recorde histórico do clube na neo química arena.</p>
-          <a href="/noticia2" class="btn btn-primary">Saiba Mais</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card mb-3">
-      <div class="card" style="width: 18rem;">
-        <img src="{{ url_for('static', filename='noticia3.jpg') }}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Dinei elogia trio do corinthians</h5>
-          <p class="card-text">Projeta ataque ideal para o time e exalta luta de Yuri Alberto.</p>
-          <a href="/noticia3" class="btn btn-primary">Saiba Mais</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
       {% endblock %}
       {% block script %}
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

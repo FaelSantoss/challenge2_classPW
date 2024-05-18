@@ -15,7 +15,7 @@ class NoticiaForm(FlaskForm):
         validators=[DataRequired()],
     )
 
-    img = FileField(
+    img = StringField(
         "Imagem",
         validators=[DataRequired()],
     )

@@ -1,0 +1,15 @@
+{% if noticias | length > 0 %}
+
+<div>
+  {% for noticia in noticias %}
+  {% include "noticia_cards/card.html" %}
+  {% endfor %}
+</div>
+
+{% else %}
+<p>
+  Nenhuma noticia encontrada 😢.
+</p>
+
+{% endif %}
+</div>

@@ -1,5 +1,8 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, Flask
+
 from .create_noticia_view import create_noticia_view
+from .noticias_page_view import noticias_page_view
+
 import os
 from werkzeug.utils import secure_filename
 
@@ -7,10 +10,9 @@ create_noticia_view = create_noticia_view
 
 noticia_views = Blueprint("noticia_views", __name__)
 
-
 @noticia_views.route("/")
 def index():
-    return render_template("homepage.html")
+    return noticias_page_view()
 
 
 @noticia_views.route("/noticia1")
