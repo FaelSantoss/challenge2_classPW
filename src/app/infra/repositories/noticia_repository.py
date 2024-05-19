@@ -30,5 +30,16 @@ class NoticiaRepository:
 
         return noticias
     
+    def get_noticia_by_id(self, id: str) -> Noticia | None:
+        row = mysql.query(
+            sql="SELECT * FROM noticias WHERE id = %s",
+            params=[id]
+        )
+        
+        if row:
+            return self.__get_noticia_entity(row)
+        
+        return None
+    
     def __get_noticia_entity(self, row):
         return Noticia(id=row["id"], title=row["title"], content=row["content"], img=row["img"])

@@ -1,23 +1,19 @@
-from flask import Blueprint, render_template, request, Flask
+from flask import Blueprint, render_template
 
 from .create_noticia_view import create_noticia_view
-from .noticias_page_view import noticias_page_view
-
-import os
-from werkzeug.utils import secure_filename
-
-create_noticia_view = create_noticia_view
+from .home_page_view import home_page_view
+from .noticia_page_view import noticia_page_view
 
 noticia_views = Blueprint("noticia_views", __name__)
 
 @noticia_views.route("/")
 def index():
-    return noticias_page_view()
+    return home_page_view()
 
 
-@noticia_views.route("/noticia1")
-def noticia1():
-    return render_template("noticia1.html")
+@noticia_views.route("/noticia/<noticia.id>")
+def noticia():
+    return noticia_page_view()
 
 
 @noticia_views.route("/noticia2")
