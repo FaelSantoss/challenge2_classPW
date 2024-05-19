@@ -11,8 +11,8 @@ def index():
     return home_page_view()
 
 
-@noticia_views.route("/noticia/<noticia.id>")
-def noticia():
+@noticia_views.route("/noticia/<id>")
+def noticia(id):
     return noticia_page_view()
 
 
