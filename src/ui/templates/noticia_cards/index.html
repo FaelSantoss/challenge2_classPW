@@ -1,6 +1,15 @@
+<style>
+  .card-container {
+    margin-left: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+</style>
+
 {% if noticias | length > 0 %}
 
-<div>
+<div class="card-container">
   {% for noticia in noticias %}
   {% include "noticia_cards/card.html" %}
   {% endfor %}
@@ -8,7 +17,7 @@
 
 {% else %}
 <p>
-  Nenhuma noticia encontrada 😢.
+  Nenhuma noticia encontrada.
 </p>
 
 {% endif %}
