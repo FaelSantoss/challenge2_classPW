@@ -1,15 +1,14 @@
-<div class="container mb-5">
-<div class="row">
 <div class="col-sm-4">
-    <div class="card mb-3">
-      <div class="card" style="width: 18rem;">
+    <div class>
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='uploads/' + noticia.img) }}" class="card-img-top" alt="...">
+                class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{noticia.title}}</h5>
-                <img src="{{ url_for('static', filename='uploads/' + noticia.img) }}" class="card-img-top" alt="...">
-                <a href="/noticia/{{noticia.id}}" class="btn btn-primary">Saiba Mais</a>
+                <p class="card-text">{{noticia.content}}</p>
+                <a href="/noticia/{{noticia.id}}"
+                    class="btn btn-primary">Saiba Mais</a>
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>
