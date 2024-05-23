@@ -9,7 +9,7 @@ def create_app():
     )
 
     app.config["SECRET_KEY"] = "1234"
-    app.config["UPLOAD_FOLDER"] = "static/fotos_noticias"
+    app.config['UPLOAD_FOLDER'] = 'static/uploads'
     init_views(app)
 
     return app
