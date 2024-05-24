@@ -41,5 +41,16 @@ class NoticiaRepository:
         
         return None
     
+    def get_latest_records(self, id: str) -> Noticia | None:
+        select_query = "SELECT * FROM noticias ORDER BY created_at DESC LIMIT 3;"
+        rows = mysql.query(sql=select_query, is_single=False)
+
+        noticias = []
+
+        for row in rows:
+            noticias.append(self.__get_noticia_entity(row))
+
+        return noticias
+
     def __get_noticia_entity(self, row):
-        return Noticia(id=row["id"], title=row["title"], content=row["content"], img=row["img"])
+        return Noticia(id=row["id"], title=row["title"], content=row["content"], img=row["img"], created_at=row["created_at"])
