@@ -1,6 +1,7 @@
 from dataclasses import dataclass
-from core.entities.entity import Entity
 from datetime import datetime
+from core.entities.entity import Entity
+
 
 @dataclass
 class Noticia(Entity):

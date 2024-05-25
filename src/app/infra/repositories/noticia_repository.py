@@ -1,7 +1,6 @@
 from core.entities.noticia import Noticia
 from infra.database import mysql
 
-
 class NoticiaRepository:
     def create_noticia_record(self, noticia_record: Noticia):
         print(mysql, flush=True)
@@ -41,7 +40,7 @@ class NoticiaRepository:
         
         return None
     
-    def get_latest_records(self, id: str) -> Noticia | None:
+    def get_latest_records(self) -> list[Noticia]:
         select_query = "SELECT * FROM noticias ORDER BY created_at DESC LIMIT 3;"
         rows = mysql.query(sql=select_query, is_single=False)
 
