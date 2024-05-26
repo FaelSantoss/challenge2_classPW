@@ -13,5 +13,3 @@ def create_app():
     init_views(app)
 
     return app
-
-app = create_app()

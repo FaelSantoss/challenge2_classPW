@@ -8,22 +8,20 @@ from werkzeug.utils import secure_filename
 import os
 
 def create_noticia_view():
-    app = Flask(__name__)
-    app.config["UPLOAD_FOLDER"] = 'static/uploads'
-
+    
     img_path = 'default.jpg'
 
     if request.method == "POST":
         noticia_form = NoticiaForm(request.form)
         try:
             file = request.files.get('img')
+
             caminho = os.path.abspath(os.path.dirname(__file__))
-            axc = caminho.replace('app/infra/views/noticia_views', '')
-            caminho_static = axc + 'ui/'
+            caminho_static = caminho.replace('app/infra/views/noticia_views', 'ui/static/uploads')
 
             if file and file.filename!= '':
                 filename = secure_filename(file.filename)
-                filepath = os.path.join(caminho_static, app.config["UPLOAD_FOLDER"], filename)
+                filepath = os.path.join(caminho_static, filename)
                 file.save(filepath)
                 img_path = filename
 

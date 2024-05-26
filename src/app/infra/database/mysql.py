@@ -3,9 +3,6 @@ from typing import Union, Dict, List
 
 import mysql.connector
 
-from core.commons import Error
-
-
 class MySQL:
     __connection = None
     __database = None
