@@ -10,7 +10,7 @@
 {% if noticias | length > 0 %}
 
 <div class="card-container">
-  {% for noticia in noticias %}
+  {% for noticia in noticias|reverse %}
   {% include "noticia_cards/card.html" %}
   {% endfor %}
 </div>
@@ -21,4 +21,3 @@
 </p>
 
 {% endif %}
-</div>
