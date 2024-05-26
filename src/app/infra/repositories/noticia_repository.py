@@ -19,7 +19,7 @@ class NoticiaRepository:
         mysql.mutate(sql=sql, params=params)
 
     def get_noticias(self) -> list[Noticia]:
-        select_query = "SELECT * FROM noticias"
+        select_query = "SELECT * FROM noticias ORDER BY created_at"
         rows = mysql.query(sql=select_query, is_single=False)
 
         noticias = []
