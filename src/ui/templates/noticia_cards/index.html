@@ -9,7 +9,7 @@
 
 {% if noticias | length > 0 %}
 
-<div class="card-container">
+<div class="card-container d-flex flex-wrap">
   {% for noticia in noticias|reverse %}
   {% include "noticia_cards/card.html" %}
   {% endfor %}
