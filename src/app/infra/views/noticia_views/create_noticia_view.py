@@ -1,29 +1,21 @@
-from flask import Flask, request, render_template, redirect
+from flask import request, render_template, redirect
 
-from core.use_cases import create_noticia_by_form
+from core.use_cases import create_noticia_by_form, upload_img_by_form
 from core.commons import Error
 
 from infra.forms import NoticiaForm
-from werkzeug.utils import secure_filename
-import os
+
 
 def create_noticia_view():
-    
-    img_path = 'default.jpg'
+    img_path = "default.jpg"
 
     if request.method == "POST":
         noticia_form = NoticiaForm(request.form)
         try:
-            file = request.files.get('img')
+            file = request.files.get("img")
+            img_path = file.filename
 
-            caminho = os.path.abspath(os.path.dirname(__file__))
-            caminho_static = caminho.replace('app/infra/views/noticia_views', 'ui/static/uploads')
-
-            if file and file.filename!= '':
-                filename = secure_filename(file.filename)
-                filepath = os.path.join(caminho_static, filename)
-                file.save(filepath)
-                img_path = filename
+            upload_img_by_form.execute(file=file)
 
             create_noticia_by_form.execute(
                 {
@@ -32,7 +24,7 @@ def create_noticia_view():
                     "img": img_path,
                 }
             )
-            return redirect('/')
+            return redirect("/")
 
         except Error as error:
             pass
