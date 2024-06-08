@@ -1,5 +1,5 @@
 {% if noticias | length == 1 %}
-<div class="container border border-white bg-white my-2 col-sm-10" style="padding: 10px;">
+<div class="container bg-black my-2 col-sm-10 bg-color-black" style="--bs-bg-opacity:.8; padding: 10px;">
   <div class="row justify-content-center">
     <div id="carouselExampleCaptions" class="carousel slide" style="max-width: 700px;">
       <div class="carousel-inner ">
@@ -14,7 +14,7 @@
   </div>
 </div>
 {% elif noticias | length == 2 %}
-<div class="container border border-white bg-white my-2 col-sm-10" style="padding: 10px;">
+<div class="container bg-black my-2 col-sm-10 bg-color-black" style="--bs-bg-opacity:.8; padding: 10px;">
   <div class="row justify-content-center">
     <div id="carouselExampleCaptions" class="carousel slide" style="max-width: 700px;">
       <div class="carousel-indicators">
@@ -47,7 +47,7 @@
   </div>
 </div> 
 {% elif noticias | length >= 3 %}
-<div class="container border border-white bg-white my-2 col-sm-10" style="padding: 10px;">
+<div class="container bg-black my-2 col-sm-10 bg-color-black" style="--bs-bg-opacity:.8; padding: 10px;">
     <div class="row justify-content-center">
       <div id="carouselExampleCaptions" class="carousel slide" style="max-width: 700px;">
         <div class="carousel-indicators">
