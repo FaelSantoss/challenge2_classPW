@@ -1,7 +1,10 @@
-from flask import Flask
+from flask import Flask,Blueprint, render_template
+
+from infra.views.noticia_views import create_noticia_view
+from infra.views.noticia_views import home_page_view
+from infra.views.noticia_views import noticia_page_view
 
 from infra.views import init_views
-
 
 def create_app():
     app = Flask(
@@ -13,3 +16,5 @@ def create_app():
     init_views(app)
 
     return app
+
+app = create_app()

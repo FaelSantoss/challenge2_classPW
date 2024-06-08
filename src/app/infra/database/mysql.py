@@ -9,10 +9,10 @@ class MySQL:
 
     def __init__(self) -> None:
         config = {
-            "user": getenv("MYSQL_DATABASE_USER"),
-            "password": getenv("MYSQL_DATABASE_PASSWORD"),
-            "database": getenv("MYSQL_DATABASE_NAME"),
-            "host": getenv("MYSQL_DATABASE_HOST"),
+            "user": "fael",
+            "password": "fael" ,
+            "database": "fael",
+            "host": "database",
             "raise_on_warnings": True,
         }
 
