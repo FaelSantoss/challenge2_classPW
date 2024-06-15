@@ -10,21 +10,9 @@ noticia_views = Blueprint("noticia_views", __name__)
 def index():
     return home_page_view()
 
-
 @noticia_views.route("/noticia/<id>")
 def noticia(id):
     return noticia_page_view()
-
-
-@noticia_views.route("/noticia2")
-def noticia2():
-    return render_template("noticia2.html")
-
-
-@noticia_views.route("/noticia3")
-def noticia3():
-    return render_template("noticia3.html")
-
 
 @noticia_views.route("/create-noticia", methods=["GET", "POST"])
 def create_noticia():
